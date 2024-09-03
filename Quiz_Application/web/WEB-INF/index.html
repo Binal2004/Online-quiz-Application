@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Register</title>
+    <style>
+        body {
+            background-color: #e3f2fd; /* Light blue background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            color: #0d47a1; /* Dark blue */
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #90caf9; /* Light blue border */
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #0d47a1; /* Dark blue */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #01579b; /* Even darker blue */
+        }
+        .message {
+            margin-top: 20px;
+            color: #388e3c; /* Green */
+            font-size: 16px;
+        }
+        .error {
+            margin-top: 20px;
+            color: #d32f2f; /* Red */
+            font-size: 16px;
+        }
+        .login-link {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #0d47a1; /* Dark blue */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .login-link:hover {
+            background-color: #01579b; /* Even darker blue */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Username" required><br>
+            <input type="password" id="loginPassword" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" id="registerUsername" placeholder="Username" required><br>
+            <input type="password" id="registerPassword" placeholder="Password" required><br>
+            <input type="submit" value="Register">
+        </form>
+
+        <p id="message"></p>
+        <p id="error" class="error"></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('loginUsername').value;
+            var password = document.getElementById('loginPassword').value;
+            
+            // Handle login via API call or AJAX
+            // Example:
+            // fetch('/login', {
+            //     method: 'POST',
+            //     body: JSON.stringify({username: username, password: password}),
+            //     headers: { 'Content-Type': 'application/json' }
+            // }).then(response => {
+            //     if (response.ok) {
+            //         window.location.href = 'quiz.html'; // Redirect to quiz page
+            //     } else {
+            //         document.getElementById('error').innerText = 'Invalid username or password';
+            //     }
+            // }).catch(error => {
+            //     console.error('Error:', error);
+            // });
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('registerUsername').value;
+            var password = document.getElementById('registerPassword').value;
+            
+            // Handle registration via API call or AJAX
+            // Example:
+            // fetch('/register', {
+            //     method: 'POST',
+            //     body: JSON.stringify({username: username, password: password}),
+            //     headers: { 'Content-Type': 'application/json' }
+            // }).then(response => {
+            //     if (response.ok) {
+            //         document.getElementById('message').innerText = 'Registration Successful!';
+            //     } else {
+            //         document.getElementById('error').innerText = 'Registration Failed!';
+            //     }
+            // }).catch(error => {
+            //     console.error('Error:', error);
+            // });
+        });
+    </script>
+</body>
+</html>
